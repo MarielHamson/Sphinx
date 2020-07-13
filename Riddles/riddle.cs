@@ -1,5 +1,5 @@
 using System;
-namespace Games.Riddles
+namespace Games.Sphinx
 {
   public class Riddle
   {
@@ -18,6 +18,11 @@ namespace Games.Riddles
     public string GetAnswer()
     {
       return Answer;
+    }
+
+    public bool CheckAnswer(string userResponse)
+    {
+      return (userResponse == Answer);
     }
   }
 }
