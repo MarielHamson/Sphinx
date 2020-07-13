@@ -8,11 +8,11 @@ namespace Games
   {
     public static void Main()
     {
-      Riddle one = new Riddle("The more of this there is, the less you see", "darkness");
-      Riddle two = new Riddle("It stalks the countryside with ears that can’t hear. What is it?", "corn");
-      Riddle three = new Riddle("I am an odd number. Take away a letter and I become even. What number am I?", "seven");
+      Riddle one = new Riddle("The more of this there is, the less you see", "DARKNESS");
+      Riddle two = new Riddle("It stalks the countryside with ears that can’t hear. What is it?", "CORN");
+      Riddle three = new Riddle("I am an odd number. Take away a letter and I become even. What number am I?", "SEVEN");
       Riddle four = new Riddle("What 4-letter word can be written forward, backward or upside down, and can still be read from left to right?", "NOON");
-      Riddle five = new Riddle("What is so fragile that saying its name breaks it?", "silence");
+      Riddle five = new Riddle("What is so fragile that saying its name breaks it?", "SILENCE");
 
       List<Riddle> riddles = new List<Riddle>() { one, two, three, four, five };
 
@@ -23,7 +23,8 @@ namespace Games
         for (int index = 0; index < riddles.Count; index++)
         {
           Console.WriteLine(riddles[index].GetQuestion());
-          string userResponse = Console.ReadLine();
+          string userInput = Console.ReadLine();
+          string userResponse = userInput.ToUpper();
 
           if (riddles[index].CheckAnswer(userResponse))
           {
@@ -33,13 +34,17 @@ namespace Games
           {
             Console.WriteLine("The Sphinx has eaten you! The correct answer was " + riddles[index].GetAnswer());
           }
-          Console.WriteLine("Do you want to keep playing? [Y] for Yes, press [N] to Quit");
-          string endGame = Console.ReadLine();
-          if (endGame == "N" || endGame == "n")
-          {
-            Console.WriteLine("Goodbye!");
-            Main();
-          }
+        }
+        Console.WriteLine("Do you want to keep playing? [Y] for Yes, press [N] to Quit");
+        string endGame = Console.ReadLine();
+        if (endGame == "N" || endGame == "n")
+        {
+          Console.WriteLine("Goodbye!");
+        }
+        else
+        {
+          Console.WriteLine("Try to conquer the Sphinx again!");
+          Main();
         }
       }
       else
