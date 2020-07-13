@@ -13,11 +13,11 @@ namespace Games.Riddles
     }
     public string GetQuestion()
     {
-      return _question;
+      return Question;
     }
     public string GetAnswer()
     {
-      return _answer;
+      return Answer;
     }
   }
 }
